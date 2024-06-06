@@ -8,5 +8,5 @@ export default {
     "/": Homepage,
     "/services": Services,
     "/contact": Contact,
-    "/infos": Infos,
+    "/infos": Infos
 }
