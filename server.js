@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-//Connexion à la base de donnée
+//Connexion à la base de données
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI,  );
@@ -26,11 +26,18 @@ const connectDB = async () => {
 
 connectDB();
 
-//Route basique pour verification du fonctionnement du server
-app.get('/', (req, res) => res.send('API is running....'));
+ //Routes ** importation du ficher routes.js
+ const routes = require('./routes');
+ //Toutes les routes importées seront préfixées de '/api'
+ app.use('/api', routes);
 
+ //Gestionnaire d'erreur, affichera un message d'erreur dans la console avec le status 500
+ app.use((err, _req, res, _next) => {
+    console.error(err.stack);
+    res.status(500).send({ message: 'il y a quelque chose de cassé'})
+ })
 //port
 const PORT = process.env.PORT || 3000;
 
-//Démarage du server
+//Démarage du server avec un message 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
