@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const contactRoutes = require ('./routes/contactRoutes');
 
 //Chargement des variables d'environement
 dotenv.config();
@@ -26,10 +27,12 @@ const connectDB = async () => {
 
 connectDB();
 
- //Routes ** importation du ficher routes.js
- const routes = require('./routes');
- //Toutes les routes importées seront préfixées de '/api'
- app.use('/api', routes);
+  //Routes
+ app.use('/api', contactRoutes);
+
+ //vérification du serveur
+
+ app.get('/', (req, res) => res.end('API fonctionnent'));
 
  //Gestionnaire d'erreur, affichera un message d'erreur dans la console avec le status 500
  app.use((err, _req, res, _next) => {
