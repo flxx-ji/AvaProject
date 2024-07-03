@@ -15,6 +15,7 @@
                     <li><a href="/#/infos">Infos</a></li>
                 </ul>
             </div>
+            <div id="icons"></div>
         </nav>
 
     </header>

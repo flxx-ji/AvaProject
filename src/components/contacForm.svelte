@@ -29,7 +29,7 @@
                 successMessage = 'Contact information saves successfully';
                 clearForm();
             } else {
-                throw new Error('Failes to save contact information');
+                throw new Error('Failed to save contact information');
             }
         } catch (error) {
             errorMessage = 'An error occured while submitting the form';
@@ -70,7 +70,7 @@
         </label>
        </div>
 
-       <button typre="submit">Submit</button>
+       <button type="submit">Submit</button>
 
     </form>
 
@@ -78,7 +78,7 @@
        <p class="success">{successMessage}</p>
     {/if}
     {#if errorMessage}
-       <p classs="error">{errorMessage}</p>
+       <p class="error">{errorMessage}</p>
     {/if}       
         <!-- <div class="form">
             <ul>
@@ -108,11 +108,11 @@
         margin-bottom: 1rem;
     }
 
-    success {
+    .success {
         color:green;
     }
 
-    error {
+    .error {
         color: red;
     }
 </style>
