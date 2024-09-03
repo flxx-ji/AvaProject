@@ -1,9 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const contactRoutes = require ('./routes/contactRoutes');
+import express  from 'express';
+import mongoose  from 'mongoose';
+import dotenv  from 'dotenv';
+import bodyParser  from 'body-parser';
+import cors  from 'cors';
+import contactRoutes  from './routes/contactRoutes.js';
 
 //Chargement des variables d'environement
 dotenv.config();
@@ -17,7 +17,7 @@ app.use(cors());
 //Connexion à la base de données
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI,  );
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log('MongoDB connected');
     }catch (err) {
         console.error(err.message);

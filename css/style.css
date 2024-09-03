@@ -12,7 +12,7 @@ body {
     font-family: 'Roboto', sans-serif;
     align-items: center;
     background-attachment: fixed;
-    /* background-image: url('/image/living-room-1835923_1280.jpg'); */
+    background-image: url('/image/living-room-1835923_1280.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,6 +33,12 @@ a:visited {
 a:hover {
     color:rgb(153, 148, 148);
 }
+
+
+.background-Homepage {
+    background-image: url(/image/living-room-1835923_1280.jpg);
+}
+  
 
 #navbar {
 

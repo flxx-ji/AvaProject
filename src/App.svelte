@@ -3,20 +3,22 @@
    import routes from "../routes";
    import Header from "./components/Header.svelte";
    import Footer from "./components/Footer.svelte";
+   // import ' ./style.css/css'
 </script>
 
  <Header/>
  <Router {routes} />
  <main>
    <section class="resume">
-      <p>
+      <!-- <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem debitis accusamus quidem dolores dignissimos beatae ex quo vel distinctio nam! Culpa soluta eligendi exercitationem dolores deleniti ex voluptatibus eius, nesciunt atque enim iure suscipit quo optio mollitia iste consequatur amet illo eum velit at minima quis aliquid odio. Voluptates placeat assumenda numquam obcaecati fuga perferendis, vero possimus laudantium saepe natus, quo repudiandae. Quis maxime deleniti voluptatum iusto eligendi consequatur ipsa, ducimus, corrupti praesentium magni aperiam quam facere tempore facilis assumenda soluta nihil nesciunt ea et. Saepe neque eaque in at maxime! Perspiciatis exercitationem qui reprehenderit voluptatem odio facere aliquid delectus.
-      </p>
+      </p> -->
   </section>
  </main>
  <Footer/>
 
  <style>
+
    main {
 
         backdrop-filter: blur(3px);
@@ -30,7 +32,7 @@
     align-items: center;
     display: flex;
     padding:1.2rem;
-    color: white;
+    color: rgb(188, 52, 52);
     
      
  }

@@ -13,6 +13,7 @@
   
 <style>
     main {
+       
         height: 40rem;
         position: relative;
         top:5%;
