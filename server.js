@@ -19,11 +19,65 @@
     port: 5432,
   });
 
+                          //FONCTIONS DE VALIDATION ET DE VERIFICATION
 
-  app.post('/api/contacts', async (req, res) =>{
+  //email
 
-    const { name, email, phone, message } = req.body;
+  function isValidEmail(email) {
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+    
+  }
+
+  //numéro de téléphone 
+
+  function isValidPhone(phone) {
+    const phoneRegex = /^[0-9]{10,15}$/;
+    return phoneRegex.test(phone);
+    
+  }
+
+  //le nom
+  function isValidName(name) {
+    return name.trim().length > 2;
+    
+  }
+  // le messsage 
+  function isValidMessage(message) {
+    return message.trim().length >10;
+    
+  }
+  // @ts-ignore
+  app.post('/api/contacts', async (req, res) => {
+     const { name, email, phone, message } = req.body;
+    const errors = [];
+
+     
+                                //VALIDATIONS DES CHAMPS
+       //nom                         
+     if (!isValidName(name)){
+        errors.push('Invalid name format. The name must be longer than 2 characters');
+     }
+
+     //email
+     if (!isValidEmail(email)){
+         errors.push('Invalid email fomat.')     
+        }
+    
+    //Numéro de téléphone
+    if(!isValidPhone(phone)){
+         errors.push('Invalid phone format. This field should contain only numbers and be between 10 and 15 digits long.')
+    }
+
+    //Message
+    if(!isValidMessage(message)){
+         errors.push('Invalid message format. The message must longer than 10 characters')
+    }
+    
+    if(errors.length > 0) {
+        return res.status(400).json({errors});
+    }
     try {
 
         const result = await pool.query(
