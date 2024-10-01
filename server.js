@@ -1,46 +1,43 @@
-import express  from 'express';
-import mongoose  from 'mongoose';
-import dotenv  from 'dotenv';
-import bodyParser  from 'body-parser';
-import cors  from 'cors';
-import contactRoutes  from './routes/contactRoutes.js';
+   
+  import express  from 'express';
+  import bodyParser from 'body-parser';
+  import pkg from 'pg'
+  const { Pool } = pkg;
 
-//Chargement des variables d'environement
-dotenv.config();
+  const app = express();
 
-const app = express();
+  const port = 3000;
 
-//Middleware
-app.use(bodyParser.json());
-app.use(cors());
+  app.use(bodyParser.json());
 
-//Connexion à la base de données
-const connectDB = async () => {
+  
+  const pool = new Pool ({
+    user: 'jean-marcbastareaud',
+    host: 'localhost',
+    database: 'avaconciergerie',
+    password: 'avaDtb',
+    port: 5432,
+  });
+
+
+  app.post('/api/contacts', async (req, res) =>{
+
+    const { name, email, phone, message } = req.body;
+
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        console.log('MongoDB connected');
-    }catch (err) {
-        console.error(err.message);
-        process.exit(1);
+
+        const result = await pool.query(
+            'INSERT INTO contacts (name, email, phone, message) VALUES ($1, $2, $3, $4) RETURNING *',
+            [name, email, phone, message]
+        );
+
+        res.status(201).json(result.rows[0]);
+    }catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error came up while saving contact information'})
     }
-};
+  });
 
-connectDB();
-
-  //Routes
- app.use('/api', contactRoutes);
-
- //vérification du serveur
-
- app.get('/', (req, res) => res.end('API fonctionnent'));
-
- //Gestionnaire d'erreur, affichera un message d'erreur dans la console avec le status 500
- app.use((err, _req, res, _next) => {
-    console.error(err.stack);
-    res.status(500).send({ message: 'il y a quelque chose de cassé'})
- })
-//port
-const PORT = process.env.PORT || 3000;
-
-//Démarage du server avec un message 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`)
+  });
