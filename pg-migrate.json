@@ -1,0 +1,6 @@
+{
+  
+  "driver": "pg",
+  "database-url": "postgres://jean-marcbastareaud:avaDtb@localhost:5432/avaconciergerie",
+  "migration-dir": "migrations"
+}

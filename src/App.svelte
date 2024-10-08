@@ -1,6 +1,6 @@
 <script>
    import Router , {location} from "svelte-spa-router";
-   import routes from "../routes";
+   import routes from "../routes/routes";
    import Header from "./components/Header.svelte";
    import Footer from "./components/Footer.svelte";
    // import ' ./style.css/css'
