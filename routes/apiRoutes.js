@@ -2,15 +2,20 @@
   import express  from 'express';
  
   import pkg from 'pg';
+
+  import validator from 'validator';
   
   const { Pool } = pkg;
 
   const router = express.Router();
 
   
-
+  // router.get('/test', (req, res) => {
+  //   res.send('Test route is working!');
+  // });
   
-
+  
+//Pool de connexion
   
   const pool = new Pool ({
     user: 'jean-marcbastareaud',
@@ -26,8 +31,8 @@
 
   function isValidEmail(email) {
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+     
+    return validator.isEmail(email);
     
   }
 
@@ -53,27 +58,45 @@
     return message.trim().length >10;
     
   }
+
+  //limitation de la longueur
+
+  function isValidLength(value, maxLength) {
+    return value.length <= maxLength;
+  }
+
+
   // @ts-ignore
   router.post('/contacts', async (req, res) => {
-     const { name,firstname,  email, phone, message } = req.body;
-      
+    console.log("Request body:", req.body);
+
+   
+ 
+    const { name,firstname,  email, phone, message } = req.body;
     const errors = [];
 
      
                                 //VALIDATIONS DES CHAMPS
+
+
+
        //nom                         
      if (!isValidName(name)){
         errors.push('Invalid name format. The name must be longer than 2 characters');
+     }else if (!isValidLength(name, 100)){
+      errors.push('The name  must not exceed 100 characters. ');
      }
 
      //prénom
      if (!isValidFirstName(firstname)){
         errors.push('Invalid firstname format. The firstname must be longer than 2 characters');
+     }else if (!isValidLength(firstname, 100)) {
+      errors.push('The firstname must not exceed 100 characters.')
      }
 
      //email
      if (!isValidEmail(email)){
-         errors.push('Invalid email format.')     
+           errors.push('Invalid email format.');     
         }
     
     //Numéro de téléphone
@@ -84,6 +107,8 @@
     //Message
     if(!isValidMessage(message)){
          errors.push('Invalid message format. The message must longer than 10 characters')
+    }else if (!isValidLength(message, 500)) {
+      errors.push('The message must not exceed 500 characters');
     }
     
     if(errors.length > 0) {
@@ -99,6 +124,7 @@
         res.status(201).json(result.rows[0]);
     }catch (error) {
         console.error('Error inserting into database', error);
+        console.log("Attempting to insert data into the database");
         res.status(500).json({ error: 'An error came up while saving contact information'})
     }
   });
