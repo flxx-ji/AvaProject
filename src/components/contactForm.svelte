@@ -4,6 +4,7 @@
      import axios from 'axios';
 
      let name = '';
+     let firstname = '';
      let email = '';
      let phone = '';
      let message = '';
@@ -12,6 +13,7 @@
 
      function clearForm()  {
         name = '';
+        firstname = '';
         email = '';
         phone = '';
         message = '';
@@ -24,10 +26,16 @@
         errorMessage = '';
 
         try {
-            const response = await axios.post('/api/contacts', { name, email, phone, message});
+            const response = await axios.post('/api/contacts', { name,firstname,  email, phone, message});
             if (response.status === 201) {
                 successMessage = 'Contact information saves successfully';
                 clearForm();
+
+                //Clear the congrats message after 3 secondes
+                setTimeout(() => {
+                    successMessage = '';
+                }, 3000);
+
             } else {
                 throw new Error('Failed to save contact information');
             }
@@ -40,12 +48,18 @@
 <main>
      <h1>Contactez nous </h1>
 
-     <form on:submit|preventDefault={submitContact}>
+     <form class="formulaire" on:submit|preventDefault={submitContact}>
 
         <div>
             <label>
                 Name:
                 <input type= "text" bind:value={name} required />
+            </label>
+        </div>
+        <div>
+            <label>
+                Firstname:
+                <input type= "text" bind:value={firstname} required />
             </label>
         </div>
         
@@ -88,18 +102,16 @@
         </div> -->
 </main>
 <style>
-    .form {
-        align-items: center;
-        border: 1px solid blue;
-        display: flex;
-        flex-direction: column;
-         height: 500px;
-         width: 500px;
+    .formulaire {
+        background-color: rgba(255, 255, 255, 0.9); /* fond blanc avec opacité */
+        padding: 20px;
+        border-radius: 10px; /* pour arrondir les bords du formulaire */
+        width: 50%;
+        margin: auto;
+        z-index: 10;
     }
     main {
-        background-image: url('/image/bedroom-6686058_1280.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
+        
         padding: 2rem;
         text-align:center;
     }

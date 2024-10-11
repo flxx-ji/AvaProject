@@ -13,12 +13,16 @@
   
 <style>
     main {
-       
-        height: 40rem;
-        position: relative;
-        top:5%;
-        left: 15%;
-        width: 40rem;
+    background-image: url(/image/living-room-1835923_1280.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     }
       .resume {
     backdrop-filter: blur(3px);
@@ -38,3 +42,4 @@
 
  }
 </style>
+

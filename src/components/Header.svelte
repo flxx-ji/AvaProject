@@ -5,6 +5,7 @@
 <!-- entete de page -->
  
     <header>
+        
         <nav id="navbar"  >
             <h1 class="navbar_title">AVA CONCIERGERIE </h1>
             <div class="lienNav">
@@ -22,6 +23,15 @@
 
 
 <style>
+
+    header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+        z-index: 10;
+    }
     .navbar_title{
         display: flex;
         font-size: 40px;
