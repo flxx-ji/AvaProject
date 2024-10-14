@@ -1,181 +1,183 @@
 <script>
-  
+  let isOpen = false;
+
+  function toggleMenu() {
+      isOpen = !isOpen;
+      console.log("Menu est ouvert ?", isOpen);
+      if (isOpen) {
+          document.body.classList.add('no-scroll');
+      } else {
+          document.body.classList.remove('no-scroll');
+      }
+  }
 </script>
 
-<!-- entete de page -->
- 
-    <header>
-        
-        <nav id="navbar"  >
-            <h1 class="navbar_title">AVA CONCIERGERIE </h1>
-            <div class="lienNav">
-                <ul>
-                    <li><a href="/#/">Accueil</a></li>
-                    <li><a href="/#/services">Services</a></li>
-                    <li><a href="/#/contact">Contact</a></li>
-                    <li><a href="/#/infos">Infos</a></li>
-                </ul>
-            </div>
-            <div id="icons"></div>
-        </nav>
+<header class={isOpen ? 'hidden' : ''}>
+  <nav id="navbar">
+      <h1 class="navbar_title">AVA CONCIERGERIE</h1>
 
-    </header>
+      <!-- Icône du menu burger -->
+      <div id="icons" on:click={toggleMenu} class={isOpen ? 'open' : ''}></div>
 
+        <!-- Menu principal -->
+      <div class="lienNav">
+        <ul>
+            <li><a href="/#/" on:click={toggleMenu}>Accueil</a></li>
+            <li><a href="/#/services" on:click={toggleMenu}>Services</a></li>
+            <li><a href="/#/contact" on:click={toggleMenu}>Contact</a></li>
+            <li><a href="/#/infos" on:click={toggleMenu}>Infos</a></li>
+        </ul>
+    </div>
+     
+
+         <!-- Menu mobile (affiché lorsque le burger est cliqué) -->
+      <div class={`menu ${isOpen ? 'active' : ''}`}>
+          <h1 class="menu_title">AVA CONCIERGERIE</h1>
+          <ul>
+              <li><a href="/#/">Accueil</a></li>
+              <li><a href="/#/services">Services</a></li>
+              <li><a href="/#/contact">Contact</a></li>
+              <li><a href="/#/infos">Infos</a></li>
+          </ul>
+      </div>
+
+     
+  </nav>
+</header>
 
 <style>
-
-    header{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: transparent;
-        z-index: 10;
-    }
-    .navbar_title{
-        display: flex;
-        font-size: 40px;
-     }
-    a,
-a:visited {
-   color:#1a1919;
-   font-weight: 500;
-   cursor: pointer;
-}
-
-a:hover {
-    color:rgb(153, 148, 148);
-}
-
-#navbar {
-
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      font-size: calc(0.5rem + 1.5vw);
-      height: 100px;
-      justify-content: space-between;
-      padding: 10px;
-      /* width:640px; */
-      /* position: absolute; */
-       
-}
-
- .lienNav ul{
-    
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    /* position:absolute; */
- 
-} 
-
-ul{
-    font-weight: bold;
-    font-size: 25px;
-     
-}
- 
-#navbar .lienNav ul li {
-    
-    margin: 0 25px;
-}
-#icons {
-    color: #971010;
-    cursor: pointer;
-    display: none;
-    font-size: 2.5em;
-    position: absolute;
-    right:50px;
-    top:40px;
-    
+  /* Styles spécifiques à Header.svelte */
+  header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 10;
   }
 
-@media screen and (min-width:1034px) {
-    body{
-        /* background-image: url('/image/living-room-1835923_1280.jpg'); */
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100vh;
-        width: 100vw;
-     
-    }
+  /* .hidden {
+      display: none;
+  } */
 
-}
+  .navbar_title {
+      font-size: 40px;
+  }
 
-@media screen and (max-width:1005px) {
+  #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      height: 100px;
+      width: 100%;
+  }
 
-     #icons {
-        display: flex;
-        top:23px;
-        
-     }
-     #icons:before{
-        content:"\2630";
-         
-     }
+  #icons {
+      cursor: pointer;
+      font-size: 2.5em;
+      z-index: 20;
+  }
 
-      #icons .active:before {
-        content:"\2715";
-     }
+  #icons:before {
+      content: "\2630"; /* burger */
+  }
+
+  .open:before {
+      content: "\2715"; /* croix */
+  }
+
+  /* Menu verticale pour     et mobile */
+  .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      transition: right 0.5s ease;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .menu.active {
+      right: 0;
+  }
+
+  .menu_title {
+      font-size: 30px;
+      margin-bottom: 20px;
+  }
+
+  .menu ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  .menu ul li {
+      margin: 20px 0;
+  }
+
+  .menu ul li a {
+      font-size: 25px;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+
+  .menu ul li a:hover {
+      color: #ccc;
+  }
+
+  .no-scroll {
+      overflow: hidden;
+  }
+
+     /*Menu honrizontal pour grands écrans*/
+     .lienNav ul {
+          display: flex;
+          justify-content: space-between;
+          list-style: none;
+      }
 
 
-    .lienNav ul {
-        position: fixed;
-        right: -100%;
-        top:0;
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        background-color: rgba(229, 229, 236, 0.194);
-        backdrop-filter: blur(7px);
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        transition: 0.50s;
-    }
+      .lienNav ul li {
+        margin: 0 25px;
+      }
 
-    .lienNav li {
-        padding: 3px 0;
-    }
-/*     
-    .lienNav li :hover {
-        background-color: ;
-    } */
-    .lienNav.active ul {
-        right: 0;
-    }
-}
+      /*affichage grand écran*/
 
-@media screen and (min-width:768px){
-    body{
-        /* background-image: url('/image/living-room-1835923_1280.jpg'); */
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100vh;
-        width: 100vw;
-     
-    }
-    footer {
-        position: absolute;
-        bottom: 0;
-    }
-}
-/* @media screen and (min-width:425px) {
-    #icons {
-        position: absolute;
-        right:50%;
-
-    }
-} */
-
-/* main {
-    flex-grow: 1;
- } */
-
-  
-  
+  @media screen and (min-width: 1005px) {
+      #icons {
+          display: none;
+      }
 
  
+      .menu {
+          display: none;
+      }
+  }
 
+
+     /*affichage mobile (petits écrans)*/
+
+  @media screen and (max-width: 1005px) {
+      .lienNav ul {
+          display: none;
+      }
+
+      #icons {
+          display: block;
+      }
+
+      .menu ul {
+          display: flex;
+          flex-direction: column;
+      }
+  }
 </style>
