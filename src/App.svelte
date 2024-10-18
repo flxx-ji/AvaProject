@@ -1,12 +1,21 @@
 <script>
-   import Router , {location} from "svelte-spa-router";
+   import { location } from "svelte-spa-router";
+   import Router  from "svelte-spa-router";
    import routes from "../routes/routes";
    import Header from "./components/Header.svelte";
    import Footer from "./components/Footer.svelte";
+
+   let currentRoute;
+   $:currentRoute = $location;
    // import ' ./style.css/css'
 </script>
 
  <Header/>
+
+ {#if currentRoute === "/"}
+
+ <div class="background-Homepage"></div>
+ {/if}
  <Router {routes} />
  <main>
    <section class="resume">
@@ -28,14 +37,14 @@
         margin-top: 30px;
    }
 
-   p {
+   /* p {
     align-items: center;
     display: flex;
     padding:1.2rem;
     color: rgb(188, 52, 52);
     
      
- }
+ } */
      .resume {
    backdrop-filter: blur(3px);
    border-radius: 7px;
@@ -46,8 +55,5 @@
    width: 35rem;
 }
 
-section{
-
-}
  
 </style>

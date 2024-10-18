@@ -1,168 +1,220 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
 
+
+/* Structure générale */
+* {
+    padding: 0;
+    margin: 0;
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+main, header, footer {
+    overflow: hidden;
+}
+
 body {
-    font-family: 'Gabarito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    align-items: center;
-    /* background-attachment: fixed;
-    background-image: url('/image/living-room-1835923_1280.jpg');
-    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
-    background-repeat: no-repeat; */
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-    height: 100vh;
-    width: 100vw;                   
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
- 
-a,
-a:visited {
-   color:#1a1919;
+.blur-background {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
 }
 
-a:hover {
-    color:rgb(153, 148, 148);
-}
-
-
-.background-Homepage {
-    background-image: url(/image/living-room-1835923_1280.jpg);
-}
-  
- 
-
-
-footer{
-    color: white;
-    margin-top: auto;
-    max-height: 100vh;
-    padding: 20px;
-    text-align: center;
- }
- .mentions{
-    font-size: 16px;
- }
-/* 
+/* Style du header */
 #navbar {
-    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    padding: 10px 50px;
     display: flex;
     justify-content: space-between;
-    padding: 50px;
-    position: absolute; 
-    width: 100%;
-
+    align-items: center;
+    z-index: 10;
 }
 
-#navbar a {
-    color: #fff;
-}
-
-.navbar_title {
-    font-size: 2em;
-     
- }
-  
- #navbar .lienNav ul {
-    display: flex;
- }
-
-
- #navbar .lienNav ul li {
-     margin: 0 25px;
- }
-  
-
-
-
-#navbar .hamburgerMaison {
-    position:absolute;
-    top: 50px;
-    right: 50px;
-    width: 50px;
+/* Masquer la navigation horizontale et le logo quand le menu burger est ouvert */
+#navbar.menu-open .lienNav,
+#navbar.menu-open .navbar_title {
     display: none;
-
 }
 
-  #icons {
-    color: #fff;
-    cursor: pointer;
-    display: none;
+/* Logo principal */
+.navbar_title a {
     font-size: 2.5em;
-    position: absolute;
-    right:50px;
-    top:40px;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.navbar_title .logo {
+    display: block;
+}
+
+.navbar_title .conciergerie {
+    font-size: 1.2em;
+    font-weight: bold;
     
-  }
+}
 
-             
+/* Navigation en desktop */
+.lienNav ul {
+    display: flex;
+    gap: 20px;
+}
 
-@media screen and (max-width:1025px) {
+.lienNav ul li a {
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Burger menu et croix */
+#icons {
+    display: none;
+}
+
+.burger,
+.close {
+    font-size: 2.5em;
+    cursor: pointer;
+    color: white;
+}
+
+/* Menu vertical pour mobile/tablette */
+.menuVertical {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.menuVertical .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments AVA et Conciergerie */
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px; /* Ajuster si besoin pour l'espacement */
+}
+
+
+.menuVertical  .navbar_title a {
+    font-size: 3em;
+    font-weight: bold;
+    color:#fff;
+}
+.menuVertical .menu-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menuVertical .logo,
+.menuVertical .conciergerie {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top: 35px;
+    left: 275%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.menuVertical ul {
+    list-style: none;
+    text-align: center;
+}
+
+.menuVertical ul li {
+    margin: 20px 0;
+}
+
+.menuVertical ul li a {
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+/* Media queries */
+@media screen and (max-width: 1024px) {
     #icons {
         display: block;
-    }
-    #icons:before {
-      content: "\2630";
-    }
-    .active #icons:before {
-       content:"\2715";
-    }
-    #navbar {
-        padding: 0;
+        font-size: 2.5em;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
 
-    .navbar_title{
-        position:absolute;
-        top: 50px;
-        left:50px;
-    }
-    .navbar .hamburgerMaison{
-        display: block;
-    } 
+  
 
-    
+    .lienNav ul  {
+        display: none; /* Masquer la navigation horizontale en mobile */
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #icons {
+        display: none; /* Masquer le burger sur desktop */
+    }
+ 
+    .lienNav ul {
+        display: flex;
+        justify-content: space-between;
+        
+        
+    }
+
+  
+}
+/* Cacher le menu vertical sur les écrans de bureau */
+@media (min-width: 769px) {
+    .menuVertical {
+      display: none;
+    }
+  }
+  
+  /* Menu horizontal visible uniquement sur desktop */
+  .lienNav {
+    display: none; /* Cacher par défaut */
+  }
+  
+  @media (min-width: 769px) {
     .lienNav {
-        top: 0;
-        
-        position:absolute;
-        background-color: ;
-        backdrop-filter: blur(7px);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        right: -100%;
-        transition: all 0.5s ease;
-     }
-
-     .lienNav.mobile-menu {
-        margin-right: 0;
-         
-        
+      display: flex; /* Afficher sur desktop */
     }
-     .lienNav ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-     }
+  }
 
-     #navbar .lienNav ul li {
-        margin: 25px 0px;
-        font-size: 1.5em;
-        
-     }
-
-     .navbar.active ul {
-         right: 0;
-     }
-      
-} */
+/* Effet de flou arrière-plan lors de l'ouverture du menu */
+body.no-scroll {
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Effet de flou */
+}

@@ -2,7 +2,9 @@
     // import Header from "../src/components/Header.svelte";
     // import Footer from "../src/components/Footer.svelte";
 </script>
-  
+  <div class="page-container">
+    <h1>Welcome to Ava Conciergerie</h1>
+  </div>
 <main>
     <section class="resume">
         <p>
@@ -12,8 +14,20 @@
 </main>
   
 <style>
+.page-container {
+    min-height: 100vh; /* Assure que la page occupe toute la hauteur de l'écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Assure que la largeur est limitée à l'écran */
+    background-image: url('/image/living-room-1835923_1280.jpg'); /* Si tu veux un background spécifique */
+    background-size: cover;
+    background-position: center center;
+  }
+
     main {
-    background-image: url(/image/living-room-1835923_1280.jpg);
+    /* background-image: url(/image/living-room-1835923_1280.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

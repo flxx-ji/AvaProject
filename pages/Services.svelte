@@ -11,6 +11,17 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin: 0;
+    }
+
+    P {
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+        backdrop-filter: blur(5px); /* Ajoute un léger effet flou derrière le texte pour améliorer la lisibilité */
+        background: rgba(0, 0, 0, 0.5); /* Une légère opacité pour rendre le texte plus lisible */
+        padding: 20px;
+        border-radius: 10px;
     }
 </style>
 
