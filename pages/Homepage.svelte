@@ -50,7 +50,7 @@
  }
 
  p{
-    color: white;
+    color: rgb(205, 147, 147);
     letter-spacing: .12em;
     word-spacing: .16em;
 

@@ -46,45 +46,53 @@
  </script>
 
 <main>
-     <h1>Contactez nous </h1>
+     <h1>Contact </h1>
 
      <form class="formulaire" on:submit|preventDefault={submitContact}>
 
         <div>
             <label>
-                Name:
+                <div class="fieldName">Name</div>
+                
                 <input type= "text" bind:value={name} required />
             </label>
         </div>
         <div>
             <label>
-                Firstname:
+                <div class="fieldName">Firstname</div> 
+                
                 <input type= "text" bind:value={firstname} required />
             </label>
         </div>
         
        <div>
         <label>
-            Email:
+            <div class="fieldName">Email</div> 
+            
             <input type="email" bind:value={email} required />
         </label>
        </div>
         
       <div>
         <label>
-            Phone:
+            
+            <div class="fieldName">Phone</div> 
+            
             <input type="text" bind:value={phone} required />
         </label>
       </div>
         
        <div>
         <label>
-            Message:
-             <textarea bind:value={message} required></textarea>
+            <div class="fieldName"> Message</div> 
+           
+             <textarea class= message bind:value={message} required></textarea>
         </label>
        </div>
-
-       <button type="submit">Submit</button>
+       <div class="submit">
+         <button type="submit">Submit</button>
+       </div>
+       
 
     </form>
 
@@ -102,13 +110,67 @@
         </div> -->
 </main>
 <style>
+
+    h1 {
+        color:#fff;
+        font-size: 60px;
+       }
+
+
+
     .formulaire {
-        background-color: rgba(255, 255, 255, 0.9); /* fond blanc avec opacité */
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        flex-direction: column; /* fond blanc avec opacité */
         padding: 20px;
-        border-radius: 10px; /* pour arrondir les bords du formulaire */
-        width: 50%;
+        border-radius: 10px; 
+        height: 400px; 
+        width: 400px;
         margin: auto;
         z-index: 10;
+    }
+
+    label {
+         
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        padding-bottom: 3px;
+     }
+
+     input {
+        border-radius: 5px;
+        height: 25px;
+        padding-top: 3px;
+
+     }
+     .fieldName {
+        font-weight: bold;
+        display: flex;
+        margin: 0px;
+        padding-left: 10px;
+        
+     }
+
+     .message {
+        height: 70px;
+        border-radius: 5px;
+        border: 2px solid black;
+      }
+
+      button {
+        border-radius: 5px;
+        font-weight: bold;
+        height: 25px;
+        width: 60px;
+       }
+
+    .submit {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 30px;
+        width: 400px;
     }
     main {
         

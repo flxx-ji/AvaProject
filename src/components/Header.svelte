@@ -37,8 +37,8 @@
   <!-- Logo principal visible en desktop et mobile -->
   <div class="navbar_title">
     <a href="/">
-      <span class="logo">AVA</span>
-      <span class="conciergerie">Conciergerie</span>
+      <h2 class="logo-horizontal">AvA</h2>
+      <h2 class="conciergerie-horizontal">Conciergerie</h2>
     </a>
   </div>
 
@@ -57,16 +57,16 @@
   <nav class="menuVertical">
     <div class="menu-header">
       <div class="logoTitle">
-        <span class="logo">AVA</span>
-        <span class="conciergerie">Conciergerie</span>
+        <h2 class="logo-vertical">AvA</h2>
+        <h2 class="conciergerie-vertical">Conciergerie</h2>
       </div>
       <span class="close" on:click={toggleMenu}>&times;</span> <!-- La croix -->
     </div>
     <ul>
-      <li><a href="#/">Home</a></li>
-      <li><a href="#/services">Services</a></li>
-      <li><a href="#/contact">Contact</a></li>
-      <li><a href="#/infos">Infos</a></li>
+      <li><a href="#/" on:click={toggleMenu}>Home</a></li>
+      <li><a href="#/services" on:click={toggleMenu}>Services</a></li>
+      <li><a href="#/contact" on:click={toggleMenu}>Contact</a></li>
+      <li><a href="#/infos" on:click={toggleMenu}>Infos</a></li>
     </ul>
   </nav>
   {/if}
@@ -74,9 +74,9 @@
 
 <!-- Contenu principal de la page -->
 <div class="page-content">
-  <div class="presentation-text">
+  <!-- <div class="presentation-text">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-  </div>
+  </div> -->
 
   <footer>
     <p>All rights reserved</p>
@@ -91,15 +91,7 @@
     transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
   } */
 
-  .logo {
-    display: flex;
-    font-size: 60px;
-    justify-content: center;
-  }
-
-  .conciergerie {
-    font-size: 30px;
-  }
+ 
 
   /* Style pour l'icône de fermeture */
   .close {
@@ -134,12 +126,39 @@
       z-index: 1;
       transform:  translateX(0);
   }
-  .menuVertical .logo {
-    height: 20px;
+   .logo-horizontal {
+    font-size: 40px;
+    height: 35px;
+    margin-left: 20px;
+    
   }
-  .menuVertical .conciergerie {
+  .conciergerie-horizontal {
+     
+     font-size: 20px;
+  }
+
+
+
+  .logoTitle {
     display: flex;
-    height: 15px;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    color: white;
+    width: 100%;
+  }
+  .logo-vertical {
+    display: flex;
+    font-size: 40px;
+    height: 40px;
+    justify-content: center;
+     
+  }
+
+  .conciergerie-vertical {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
   }
 
   .menu-header {
@@ -152,6 +171,7 @@
   }
 
   .menuVertical ul {
+      margin-right: 35px;
       list-style: none;
       text-align: center;
   }
