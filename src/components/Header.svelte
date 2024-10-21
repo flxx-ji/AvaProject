@@ -95,19 +95,30 @@
 
   /* Style pour l'icône de fermeture */
   .close {
-      font-size: 2.5em;
+      font-size: 3.5em;
       color: #971010;
       cursor: pointer;
       position: absolute;
-      right: 20px;
-      top: 20px;
+      right: 10px;
+      top: 9px;
   }
   
   /* Ajuster la taille du burger */
   .burger {
-      font-size: 2.5em;
-      cursor: pointer;
+      
       color: #971010;
+      cursor: pointer;
+      font-size: 1.5em;
+    
+      position: absolute;
+      top:1px;
+      right:50px
+
+     
+  }
+
+  .navbar_title {
+    margin: 20px, 20px;
   }
 
   /* Menu vertical pour tablette/mobile */
@@ -129,6 +140,7 @@
    .logo-horizontal {
     font-size: 40px;
     height: 35px;
+    margin-top: 15px;
     margin-left: 20px;
     
   }
@@ -145,6 +157,7 @@
     flex-direction: column;
     height: 50px;
     color: white;
+    margin-top: 20px;
     width: 100%;
   }
   .logo-vertical {
