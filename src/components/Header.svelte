@@ -78,9 +78,9 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
   </div> -->
 
-  <footer>
+  <!-- <footer>
     <p>All rights reserved</p>
-  </footer>
+  </footer> -->
 </div>
 
 <style>
@@ -200,7 +200,7 @@
   }
 
   /* Style pour le texte de présentation */
-  .presentation-text {
+  /* .presentation-text {
       text-align: center;
       color: white;
       position: absolute;
@@ -208,16 +208,16 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 1.5em;
-  }
+  } */
 
   /* Footer */
-  footer {
+  /* footer {
       position: absolute;
       bottom: 10px;
       width: 100%;
       text-align: center;
       color: white;
-  }
+  } */
 
   nav ul {
     list-style-type: none;
