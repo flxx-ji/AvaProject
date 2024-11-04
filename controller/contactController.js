@@ -1,25 +1,125 @@
-import  Contact from '../models/contact.js';
+import pkg from 'pg';
+import validator from 'validator';
 
-export const createContact = async (req, res) => {
-    try {
-        const { name, email, phone, message } = req.body;
+const {Pool} = pkg;
 
-        const newContact = new Contact ({name, email, phone, message});
-        await newContact.save();
+ 
+//Pool de connexion
+  
+const pool = new Pool ({
+    user: 'jean-marcbastareaud',
+    host: 'localhost',
+    database: 'avaconciergerie',
+    password: 'avaDtb',
+    port: 5432,
+  });
 
-        res.status(201).json({ message: 'Contact information saved successfully'});
-    } catch (err) {
-        res.status(500).json({ message: 'Server error', error: err.message});
-    }
-};
+                          //FONCTIONS DE VALIDATION ET DE VERIFICATION
 
-export const getAllContacts = async (_req, res) => {
-    try {
-        const contacts = await Contact.find();
-        res.status(200).json(contacts);
-     }catch (err)  {
-        res.status(500).json({message: 'erreur dans le serveur', error: err.message});
+  //email
+
+  function isValidEmail(email) {
+     return validator.isEmail(email);
+   }
+
+  //numéro de téléphone 
+
+  function isValidPhone(phone) {
+    const phoneRegex = /^[0-9]{10,15}$/;
+    return phoneRegex.test(phone);
+    
+  }
+
+  //le nom
+  function isValidName(name) {
+    return name.trim().length > 2;
+    
+  }
+  //le prénom
+  function isValidFirstName(firstname) {
+    return firstname.trim().length > 2;
+  }
+  // le messsage 
+  function isValidMessage(message) {
+    return message.trim().length >10;
+    
+  }
+
+  //limitation de la longueur
+
+  function isValidLength(value, maxLength) {
+    return value.length <= maxLength;
+  }
+
+  export const createContact = async (req, res) => {
+    console.log("Request body:", req.body);
+
+    const {name, firstname, email, phone, message} = req.body;
+    const errors = [];
+
+
+                            //VALIDATIONS DES CHAMPS
+
+
+
+       //nom                         
+       if (!isValidName(name)){
+        errors.push('Invalid name format. The name must be longer than 2 characters');
+     }else if (!isValidLength(name, 100)){
+      errors.push('The name  must not exceed 100 characters. ');
      }
-};
 
- //module.exports = {createContact, getAllContacts};
+     //prénom
+     if (!isValidFirstName(firstname)){
+        errors.push('Invalid firstname format. The firstname must be longer than 2 characters');
+     }else if (!isValidLength(firstname, 100)) {
+      errors.push('The firstname must not exceed 100 characters.')
+     }
+
+     //email
+     if (!isValidEmail(email)){
+           errors.push('Invalid email format.');     
+        }
+    
+    //Numéro de téléphone
+    if(!isValidPhone(phone)){
+         errors.push('Invalid phone format. This field should contain only numbers and be between 10 and 15 digits long.')
+    }
+
+    //Message
+    if(!isValidMessage(message)){
+         errors.push('Invalid message format. The message must longer than 10 characters')
+    }else if (!isValidLength(message, 500)) {
+      errors.push('The message must not exceed 500 characters');
+    }
+    
+    if(errors.length > 0) {
+        return res.status(400).json({errors});
+    }
+    try {
+
+        const result = await pool.query(
+            'INSERT INTO contacts (name, firstname,  email, phone, message) VALUES ($1, $2, $3, $4, $5) RETURNING name, firstname, email, phone, message',
+            [name, firstname,  email, phone, message]
+        );
+
+        res.status(201).json(result.rows[0]);
+    }catch (error) {
+        console.error('Error inserting into database', error);
+        console.log("Attempting to insert data into the database");
+        res.status(500).json({ error: 'An error came up while saving contact information'})
+    }
+  };
+ 
+
+
+
+  // @ts-ignore
+ 
+   
+ 
+    // const { name,firstname,  email, phone, message } = req.body;
+    // const errors = [];
+
+     
+        

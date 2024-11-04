@@ -12,6 +12,7 @@
     align-items: center;
     overflow: hidden;
     margin: 0;
+    flex-direction: column;
     }
 
     P {
@@ -22,9 +23,26 @@
         background: rgba(0, 0, 0, 0.5); /* Une légère opacité pour rendre le texte plus lisible */
         padding: 20px;
         border-radius: 10px;
+        margin-bottom: 13em;
+        width: 30em;
+    }
+
+    h1 {
+        height: 100%;
+        color: white;
+        font-size: 50px;
+        margin-top: 3.7em;
     }
 </style>
 
+
 <div class="services-background">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, obcaecati.</p>
+    <h1>Services</h1>
+    <p>
+        It's cold, damn cold. Ha, ha, ha, Einstein, you little devil. Einstein's clock is exactly one minute behind mine, it's still ticking. The storm. Look, there's a rhythmic ceremonial ritual coming up. Whoa, wait, Doc. Look, there's a rhythmic ceremonial ritual coming up.
+
+Uh, you mean nobody's asked you? My god, they found me. I don't know how but they found me. Run for it, Marty. My god, they found me. I don't know how but they found me. Run for it, Marty. Well, Marty, I want to thank you for all your good advice, I'll never forget it. Get out of town, I didn't know you did anything creative. Ah, let me read some. What, what?
+
+
+    </p>
 </div>

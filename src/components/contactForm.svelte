@@ -26,7 +26,7 @@
         errorMessage = '';
 
         try {
-            const response = await axios.post('/api/contacts', { name,firstname,  email, phone, message});
+            const response = await axios.post('/api/contacts', { name, firstname,  email, phone, message});
             if (response.status === 201) {
                 successMessage = 'Contact information saves successfully';
                 clearForm();
@@ -102,18 +102,14 @@
     {#if errorMessage}
        <p class="error">{errorMessage}</p>
     {/if}       
-        <!-- <div class="form">
-            <ul>
-                <li><a href="/homepage"> back to home</a></li>
-            </ul>
-
-        </div> -->
+       
 </main>
 <style>
 
     h1 {
         color:#fff;
-        font-size: 60px;
+        font-size: 50px;
+        margin-bottom: 20px;
        }
 
 

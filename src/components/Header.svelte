@@ -26,7 +26,8 @@
 
 <header id="navbar" class={isOpen ? 'menu-open' : ''}>
   <!-- Conteneur logo et burger -->
-  <div id="icons" on:click={toggleMenu}>
+  <div id="icons" role="button" tabindex="0" on:click={toggleMenu} on:keypress={(e) => e.key === 'Enter' && toggleMenu()}
+    aria-expanded={isOpen}>
     {#if isOpen}
       <span class="close">&times;</span>
     {:else}
@@ -48,7 +49,7 @@
       <li><a href="#/">Home</a></li>
       <li><a href="#/services">Services</a></li>
       <li><a href="#/contact">Contact</a></li>
-      <li><a href="#/infos">Infos</a></li>
+      <li><a href="#/infos">About us</a></li>
     </ul>
   </nav>
 
@@ -60,13 +61,14 @@
         <h2 class="logo-vertical">AvA</h2>
         <h2 class="conciergerie-vertical">Conciergerie</h2>
       </div>
-      <span class="close" on:click={toggleMenu}>&times;</span> <!-- La croix -->
+      <span class="close" role="button" tabindex="0" on:click={toggleMenu} on:keypress={(e) => e.key === 'Enter' && toggleMenu()}
+        aria-label="Close menu">&times;</span> <!-- La croix -->
     </div>
     <ul>
       <li><a href="#/" on:click={toggleMenu}>Home</a></li>
       <li><a href="#/services" on:click={toggleMenu}>Services</a></li>
       <li><a href="#/contact" on:click={toggleMenu}>Contact</a></li>
-      <li><a href="#/infos" on:click={toggleMenu}>Infos</a></li>
+      <li><a href="#/infos" on:click={toggleMenu}>About us</a></li>
     </ul>
   </nav>
   {/if}
@@ -74,23 +76,11 @@
 
 <!-- Contenu principal de la page -->
 <div class="page-content">
-  <!-- <div class="presentation-text">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-  </div> -->
-
-  <!-- <footer>
-    <p>All rights reserved</p>
-  </footer> -->
+  
 </div>
 
 <style>
-  /* Classe pour flouter le fond lorsque le menu est ouvert */
-  /* .blur-background {
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.5);  
-    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-  } */
-
+   
  
 
   /* Style pour l'icône de fermeture */
@@ -109,7 +99,6 @@
       color: #971010;
       cursor: pointer;
       font-size: 1.5em;
-    
       position: absolute;
       top:1px;
       right:50px
@@ -199,34 +188,20 @@
       cursor: pointer;
   }
 
-  /* Style pour le texte de présentation */
-  /* .presentation-text {
-      text-align: center;
-      color: white;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5em;
-  } */
-
-  /* Footer */
-  /* footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      color: white;
-  } */
+   
 
   nav ul {
     list-style-type: none;
+    gap: 7rem;
+    margin-right: 20px;
   }
 
   nav ul li a {
     color: #fff;
+    font-size: 25px;
     text-decoration: none;
     cursor: pointer;
+    
   }
 
   nav ul li a:hover {

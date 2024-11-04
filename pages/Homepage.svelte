@@ -2,15 +2,23 @@
     // import Header from "../src/components/Header.svelte";
     // import Footer from "../src/components/Footer.svelte";
 </script>
-  <div class="page-container">
-    <h1>Welcome to Ava Conciergerie</h1>
-  </div>
+  
 <main>
-    <section class="resume">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem debitis accusamus quidem dolores dignissimos beatae ex quo vel distinctio nam! Culpa soluta eligendi exercitationem dolores deleniti ex voluptatibus eius, nesciunt atque enim iure suscipit quo optio mollitia iste consequatur amet illo eum velit at minima quis aliquid odio. Voluptates placeat assumenda numquam obcaecati fuga perferendis, vero possimus laudantium saepe natus, quo repudiandae. Quis maxime deleniti voluptatum iusto eligendi consequatur ipsa, ducimus, corrupti praesentium magni aperiam quam facere tempore facilis assumenda soluta nihil nesciunt ea et. Saepe neque eaque in at maxime! Perspiciatis exercitationem qui reprehenderit voluptatem odio facere aliquid delectus.
-        </p>
-    </section>
+  <div class="page-container">
+    <h1>Welcome to AvA Conciergerie</h1>
+     
+      <p>Movies ipsum  You take the blue pill... the story ends, you wake up in your bed and believe whatever you want to believe. 
+        You take the red pill... you stay in Wonderland, and I show you how deep the rabbit hole goes It's the question that drives us, Neo. 
+        It's the question that brought you here. 
+        You know the question, just as I did Not like this. 
+        Not like this We are still here! It's the question that drives us, Neo. 
+        It's the question that brought you here. You know the question, just as I did What you know you can't explain, but you feel it.
+         You've felt it your entire life
+      </p>
+       
+    
+  </div>
+  
 </main>
   
 <style>
@@ -24,8 +32,10 @@
     background-image: url('/image/living-room-1835923_1280.jpg'); /* Si tu veux un background spécifique */
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
   }
 
+   
     main {
     /* background-image: url(/image/living-room-1835923_1280.jpg); */
     background-size: cover;
@@ -38,22 +48,31 @@
     align-items: center;
     overflow: hidden;
     }
-      .resume {
-    backdrop-filter: blur(3px);
-    border-radius: 7px;
-    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;  */
+
+  h1{
+    color:#fff;
     display: flex;
-    height: 15rem;
-    justify-content: center;
-    margin-top: 85px;
-    width: 35rem;
- }
-
- p{
-    color: rgb(205, 147, 147);
-    letter-spacing: .12em;
-    word-spacing: .16em;
-
- }
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size:50px;
+    margin-top: 8em;
+    padding-bottom: 2em;
+    height:  100%;
+    
+  }
+  P {
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+        backdrop-filter: blur(5px); 
+        background: rgba(0, 0, 0, 0.5);  
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 23em;
+        width: 30em;
+        
+    }
+    
 </style>
+
 
