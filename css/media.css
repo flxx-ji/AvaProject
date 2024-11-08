@@ -1,0 +1,31 @@
+/* Mobile/Tab Styles */
+@media screen and (max-width: 1024px) {
+  #icons {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .lienNav ul {
+    display:none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #icons {
+    display:none;
+  }
+
+  .lienNav ul {
+    display:flex;
+    justify-content: space-between;
+  }
+}
+
+/* Hide menuVertical on desktop */
+
+@media (min-width: 769px) {
+  .menuVertical {
+    display: none;
+  }
+}

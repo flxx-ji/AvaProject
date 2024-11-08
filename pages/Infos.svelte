@@ -1,4 +1,21 @@
+<main>
+ 
+  <div class = "infos-background">
+    <h1>About us</h1>
+    <p>  
+      Oh, I sure like her, Marty, she is such a sweet girl. Isn't tonight the night of the big date? That's right. Stop it. That's Calvin Klein, oh my god, he's a dream. Listen, woh. Hello, uh excuse me. Sorry about your barn.
+  
+      Yeah, I think it's a major embarrassment having an uncle in prison. Yes, yes, I'm George, George McFly, and I'm your density. I mean, I'm your destiny. See, there's Biff out there waxing it right now. Now, Biff, I wanna make sure that we get two coats of wax this time, not just one. Yeah. Ah. Whoa.
+      
+      
+  
+    </p>
+  </div>
+</main>
+
+
 <style>
+  /* Definition of the  class for the background of the section 'infos'*/
   .infos-background {
     background-image: url(/image/kitchen-8260341_1280.jpg);
     background-size: cover;
@@ -13,6 +30,7 @@
     flex-direction: column;
   }
 
+  /* Style for the page title */
   h1{
     color:#fff;
     display: flex;
@@ -24,6 +42,8 @@
     height:  100%;
     
   }
+
+  /* Style for the text */
   P {
         color: white;
         font-size: 1.5rem;
@@ -39,14 +59,3 @@
  
 </style>
 
-<div class = "infos-background">
-  <h1>About us</h1>
-  <p>  
-    Oh, I sure like her, Marty, she is such a sweet girl. Isn't tonight the night of the big date? That's right. Stop it. That's Calvin Klein, oh my god, he's a dream. Listen, woh. Hello, uh excuse me. Sorry about your barn.
-
-    Yeah, I think it's a major embarrassment having an uncle in prison. Yes, yes, I'm George, George McFly, and I'm your density. I mean, I'm your destiny. See, there's Biff out there waxing it right now. Now, Biff, I wanna make sure that we get two coats of wax this time, not just one. Yeah. Ah. Whoa.
-    
-    
-
-  </p>
-</div>

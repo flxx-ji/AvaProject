@@ -1,12 +1,12 @@
-<script>
-    // import Header from "../src/components/Header.svelte";
-    // import Footer from "../src/components/Footer.svelte";
-</script>
-  
+ 
 <main>
+  <!-- Homepage's container-->
   <div class="page-container">
+
+    <!--Main title of the home page-->
     <h1>Welcome to AvA Conciergerie</h1>
      
+    <!-- Presentation text -->
       <p>Movies ipsum  You take the blue pill... the story ends, you wake up in your bed and believe whatever you want to believe. 
         You take the red pill... you stay in Wonderland, and I show you how deep the rabbit hole goes It's the question that drives us, Neo. 
         It's the question that brought you here. 
@@ -22,6 +22,8 @@
 </main>
   
 <style>
+
+  /* Styles of the main container */
 .page-container {
     min-height: 100vh; /* Assure que la page occupe toute la hauteur de l'écran */
     display: flex;
@@ -35,10 +37,9 @@
     background-attachment: fixed;
   }
 
-   
+   /* Style for the 'main' */
     main {
-    /* background-image: url(/image/living-room-1835923_1280.jpg); */
-    background-size: cover;
+     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
@@ -48,7 +49,7 @@
     align-items: center;
     overflow: hidden;
     }
-
+  /* Style for the title */
   h1{
     color:#fff;
     display: flex;
@@ -60,6 +61,8 @@
     height:  100%;
     
   }
+
+  /* Style for the text  */
   P {
         color: white;
         font-size: 1.5rem;

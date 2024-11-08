@@ -1,9 +1,12 @@
 <script>
+    //Importation from the component ContactForm who's contain the contact form
+    //It's imported for the component file to be used in this page
     import ContactForm from "../src/components/contactForm.svelte";
 </script>
 
 <main>
      
+    <!--Insertion of the component ContactForm in this div-->
     <div class="contact-background">
         <ContactForm/>
 
@@ -13,6 +16,7 @@
  
 
 <style>
+    /*Styles for the background for the page contact*/
     .contact-background {
     background-image: url('/image/bedroom-6686058_1280.jpg');
     background-size: cover;
@@ -25,7 +29,7 @@
     align-items: center;
     overflow: hidden;
     }
-
+      /*Styles for the contact form*/
     .formulaire {
         background-color: rgba(255, 255, 255, 0.9); /* fond blanc avec opacité */
     padding: 20px;
@@ -37,9 +41,6 @@
 </style>
 
 
-<div class="contact-background">
-    
-</div>
-
+ 
      
  

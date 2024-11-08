@@ -1,31 +1,43 @@
 <script>
+  //Tracks if the menu is open
  let isOpen = false;
 
+
+  //Function to toggle meny visibility
   function toggleMenu() {
+    //Open menu state
     isOpen = !isOpen;
-    const content = document.querySelector('.page-content'); // Le contenu à flouter
+    //Page content to be blurred
+    const content = document.querySelector('.page-content'); 
     if (isOpen) {
-      content.classList.add('blurred-content'); // Ajouter le flou
-      document.body.classList.add('no-scroll'); // Désactiver le scroll
+      //Apply the blur effect
+      content.classList.add('blurred-content');  
+      //Disabled the scroll
+      document.body.classList.add('no-scroll');  
     } else {
-      content.classList.remove('blurred-content'); // Retirer le flou
+      //Remove the blur effect
+      content.classList.remove('blurred-content');  
+      //Enable scroll
       document.body.classList.remove('no-scroll');
     }
   }
 
-  //Fermetuque auto du menu vertical lorsque l'écran dépasse la largeru de 768px
+  // Auto close the vertical menu on screen resize above 768px width
   function handleResize() {
     if (window.innerWidth >= 769 && isOpen) {
+      //Close menu on larger screens
       isOpen = false;
+      //Restore scroll 
       document.body.classList.remove('no-scroll');
     }
   }
-    //Ajout d'un listener pour detecter les changements de tailles d'ecran
+    //Apply listener for window resize to call hadleResize function
     window.addEventListener('resize',handleResize);
     </script>
 
+
 <header id="navbar" class={isOpen ? 'menu-open' : ''}>
-  <!-- Conteneur logo et burger -->
+  <!--  logo and burger container -->
   <div id="icons" role="button" tabindex="0" on:click={toggleMenu} on:keypress={(e) => e.key === 'Enter' && toggleMenu()}
     aria-expanded={isOpen}>
     {#if isOpen}
@@ -35,7 +47,7 @@
     {/if}
   </div>
 
-  <!-- Logo principal visible en desktop et mobile -->
+  <!-- Main logo visible on desktop et mobile -->
   <div class="navbar_title">
     <a href="/">
       <h2 class="logo-horizontal">AvA</h2>
@@ -43,7 +55,7 @@
     </a>
   </div>
 
-  <!-- Liens de navigation pour desktop -->
+  <!-- Navigation links for desktop -->
   <nav class="lienNav">
     <ul>
       <li><a href="#/">Home</a></li>
@@ -53,7 +65,7 @@
     </ul>
   </nav>
 
-  <!-- Menu vertical pour tablette/mobile -->
+  <!-- Vertical navigation for tab/mobile -->
   {#if isOpen}
   <nav class="menuVertical">
     <div class="menu-header">
@@ -74,7 +86,7 @@
   {/if}
 </header>
 
-<!-- Contenu principal de la page -->
+<!-- Main page content -->
 <div class="page-content">
   
 </div>
@@ -83,7 +95,7 @@
    
  
 
-  /* Style pour l'icône de fermeture */
+  /* Style for close icon in mobile menu */
   .close {
       font-size: 3.5em;
       color: #971010;
@@ -93,7 +105,7 @@
       top: 9px;
   }
   
-  /* Ajuster la taille du burger */
+  /* Adjust burger icon size*/
   .burger {
       
       color: #971010;
@@ -105,12 +117,12 @@
 
      
   }
-
+  /* Logo styling in navbar*/
   .navbar_title {
     margin: 20px, 20px;
   }
 
-  /* Menu vertical pour tablette/mobile */
+  /* Vertical menu styling for  tabs/mobile */
   .menuVertical {
       backdrop-filter: blur(10px);
       position: fixed;
@@ -118,7 +130,7 @@
       right: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.8); /* Fond du menu vertical */
+      background: rgba(0, 0, 0, 0.8);  
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -126,6 +138,8 @@
       z-index: 1;
       transform:  translateX(0);
   }
+
+  /* Logo text styling for desktop */
    .logo-horizontal {
     font-size: 40px;
     height: 35px;
@@ -133,13 +147,15 @@
     margin-left: 20px;
     
   }
+
+  /* Vertical menu header */
   .conciergerie-horizontal {
      
      font-size: 20px;
   }
 
 
-
+ /* Navigation links styling */
   .logoTitle {
     display: flex;
     justify-content: center;

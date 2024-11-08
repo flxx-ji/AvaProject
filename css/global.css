@@ -1,0 +1,24 @@
+/* Reset */
+* {
+  padding:0;
+  margin:0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration:none;
+}
+
+body {
+  font-family:  'Roboto','Gabarito', sans-serif,;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+}
+
+/* Blurry background dffect*/
+.blur-background {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}

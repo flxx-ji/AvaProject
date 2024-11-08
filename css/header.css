@@ -1,0 +1,39 @@
+/* Header container */
+#navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  padding: 10px 50px;
+}
+
+/* Main logo */
+.navbar_title a {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+
+}
+
+/* Navigation */
+.lienNav ul {
+  display: flex;
+  gap: 20px;
+}
+
+.lienNav ul li a {
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Burger icon */
+#icons {
+  display:none;
+}
+
+.burger, .close {
+  font-size: 2.5em;
+  cursor: pointer;
+  color: #fff;
+}
