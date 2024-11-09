@@ -1,21 +1,26 @@
 <script>
+   //Import of necessary modules
    import { location } from "svelte-spa-router";
    import Router  from "svelte-spa-router";
    import routes from "../routes/routes";
    import Header from "./components/Header.svelte";
    import Footer from "./components/Footer.svelte";
 
+   //Declared variable for the current route
    let currentRoute;
    $:currentRoute = $location;
-   // import ' ./style.css/css'
+    
 </script>
 
+<!--Header displayed , visible on all pages -->
  <Header/>
 
+ <!-- If is the current route is "/", display a specific background for the homepage -->
  {#if currentRoute === "/"}
-
- <div class="background-Homepage"></div>
+   <div class="background-Homepage"></div>
  {/if}
+
+ <!-- The router component manages main content on defined routes -->
  <Router {routes} />
  <main>
    <section class="resume">
@@ -24,10 +29,13 @@
       </p> -->
   </section>
  </main>
+
+ <!-- Display the Footer, visible on all pages   -->
  <Footer/>
 
  <style>
 
+   /* Style for 'main'*/
    main {
 
         backdrop-filter: blur(3px);
@@ -37,14 +45,7 @@
         margin-top: 30px;
    }
 
-   /* p {
-    align-items: center;
-    display: flex;
-    padding:1.2rem;
-    color: rgb(188, 52, 52);
-    
-     
- } */
+   /* Style for the text */
      .resume {
    backdrop-filter: blur(3px);
    border-radius: 7px;
