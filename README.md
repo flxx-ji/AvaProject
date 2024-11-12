@@ -1,47 +1,67 @@
-# Svelte + Vite
+# AvA Conciergerie
+  
+## Description
 
-This template should help get you started developing with Svelte in Vite.
+  AvA Conciergerie is a web application providing a responsive service showcase for a concierge business.Built with Svelte for the frontend and Node.js with Express for thr backend, the app integrates a PostgresSQL database to store user interactions
 
-## Recommended IDE Setup
+## Table of Contents
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- [AvA Conciergerie](#ava-conciergerie)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation \& Configuration](#installation--configuration)
+    - [Prequested](#prequested)
+    - [Installation](#installation)
+  - [How to use](#how-to-use)
+  - [Fonctionnalities](#fonctionnalities)
+  - [Used Techonologies](#used-techonologies)
+  - [Author and Credits](#author-and-credits)
+  - [Licence](#licence)
+  
 
-## Need an official Svelte framework?
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
 
-## Technical considerations
+## Installation & Configuration 
 
-**Why use this over SvelteKit?**
+### Prequested
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+Before to start, make sure you have the following software installed on your 'piece'.
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+-**Node.js** (The 14 version or the higher one)
+_**PostgrresSQL** (The 12 version or the higher one)
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+### Installation
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+To get started with this project, clone the repository and install dependencies:
+```bash```
+git clone https://github.com/flxx-ji/AvaProject.git
+cd AvaProject
+npm install
+npm run dev
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+## How to use
 
-**Why include `.vscode/extensions.json`?**
+When the app is working,  open your navigator et get to  http://localhost:3000 to see the website works.
+You can navigate through some differents sections of the web site , check the services whose proposed and fill a contact form for get more informations.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+## Fonctionnalities
 
-**Why enable `checkJs` in the JS template?**
+. Contact Form: The visitors can submit their informations to ask services.
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+. Responsive Design : The applicatiobn is entirely responsive, it's adapted from desktop , to laptop, tabs and phones
 
-**Why is HMR not preserving my local component state?**
+. PostgreSQl Database : The visitors interactions are stocked and secured in a PostgreSQL database.
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+## Used Techonologies
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+. Frontend : Svelte
+. Backend : Node.js, Express
+. Database : PostgreSQL
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+## Author and Credits 
+
+. Jean-Marc Bastareaud - Developper Frontend / Backend
+
+## Licence 
+
+This project is licensed by MIT
