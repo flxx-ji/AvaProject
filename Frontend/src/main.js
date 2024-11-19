@@ -1,5 +1,5 @@
 //Import global style in the entire application
-import '/css/style.css'
+import './assets/css/style.css'
 // Import the main App component (Svelte's default export from App.svelte)
 // @ts-ignore is used here to bypass TypeScript errors if not using TypeScript
 import App from './App.svelte'
